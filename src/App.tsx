@@ -141,13 +141,25 @@ function App() {
   useEffect(() => { document.documentElement.classList.add("dark"); }, []);
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const [formState, setFormState] = useState({ name: "", email: "", message: "", sent: false, sending: false });
+  const [formState, setFormState] = useState({ name: "", email: "", message: "", sent: false, sending: false, error: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormState(s => ({ ...s, sending: true }));
-    await new Promise(r => setTimeout(r, 1000));
-    setFormState(s => ({ ...s, sending: false, sent: true }));
+    setFormState(s => ({ ...s, sending: true, error: "" }));
+    try {
+      const res = await fetch("https://formspree.io/f/xpqkzwzd", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ name: formState.name, email: formState.email, message: formState.message }),
+      });
+      if (res.ok) {
+        setFormState(s => ({ ...s, sending: false, sent: true }));
+      } else {
+        setFormState(s => ({ ...s, sending: false, error: "Something went wrong. Please try again." }));
+      }
+    } catch {
+      setFormState(s => ({ ...s, sending: false, error: "Network error. Please try again." }));
+    }
   };
 
   const statsRef = useRef<HTMLDivElement>(null);
@@ -431,6 +443,9 @@ function App() {
                     placeholder="Tell me about your project..."
                   />
                 </div>
+                {formState.error && (
+                  <div className="text-red-500 text-sm font-semibold">{formState.error}</div>
+                )}
                 <button
                   type="submit"
                   disabled={formState.sending}

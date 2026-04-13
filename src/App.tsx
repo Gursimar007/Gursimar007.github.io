@@ -70,7 +70,7 @@ const projects = [
     link: "/saprks%20salon/index.html",
     image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2074&auto=format&fit=crop",
     accent: "amber",
-    year: "2024",
+    year: "2025",
   },
   {
     title: "Dentist Sanctuary",
@@ -81,7 +81,7 @@ const projects = [
     link: "/dentisst/index.html",
     image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop",
     accent: "emerald",
-    year: "2024",
+    year: "2025",
   },
 ];
 

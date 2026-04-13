@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reviews | The Sovereign Sanctuary</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdf9b",
+                    "surface-container-high": "#eae8e4",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container": "#efeeea",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "secondary": "#735c00",
+                    "surface-container-low": "#f5f3ef",
+                    "on-surface-variant": "#404944",
+                    "on-primary-fixed": "#002117",
+                    "primary": "#003527",
+                    "surface-tint": "#2b6954",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-background": "#1b1c1a",
+                    "on-secondary-fixed": "#241a00",
+                    "on-primary": "#ffffff",
+                    "background": "#fbf9f5",
+                    "secondary-fixed-dim": "#e9c349",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#95d3ba",
+                    "surface-dim": "#dbdad6",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#80bea6",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f5",
+                    "outline-variant": "#bfc9c3",
+                    "on-surface": "#1b1c1a",
+                    "surface-container-highest": "#e4e2de",
+                    "outline": "#707974",
+                    "tertiary-container": "#574100",
+                    "primary-container": "#064e3b",
+                    "on-secondary-container": "#745c00",
+                    "tertiary": "#3c2c00",
+                    "tertiary-fixed-dim": "#e7c26e",
+                    "inverse-primary": "#95d3ba",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#b0f0d6",
+                    "on-secondary-fixed-variant": "#574500",
+                    "surface-variant": "#e4e2de",
+                    "on-tertiary-fixed-variant": "#5a4300",
+                    "on-tertiary-container": "#d1ad5c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#251a00",
+                    "surface": "#fbf9f5",
+                    "secondary-container": "#fed65b",
+                    "inverse-surface": "#30312e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .luxury-gradient {
+            background: linear-gradient(135deg, #003527 0%, #064e3b 100%);
+        }
+        .ambient-shadow {
+            box-shadow: 0 32px 64px -12px rgba(0, 53, 39, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-[#fbf9f5] dark:bg-stone-950 flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<div class="text-2xl font-serif text-[#003527] dark:text-emerald-500 italic tracking-tighter cursor-pointer transition-transform duration-300 active:scale-95">
+            The Sovereign Sanctuary
+        </div>
+<div class="hidden md:flex items-center space-x-12 font-['Noto_Serif'] font-medium uppercase tracking-widest text-sm">
+<a class="text-[#003527] dark:text-stone-300 hover:text-[#735c00] transition-colors duration-400 ease-in-out cursor-pointer" href="#">Home</a>
+<a class="text-[#003527] dark:text-stone-300 hover:text-[#735c00] transition-colors duration-400 ease-in-out cursor-pointer" href="#">Services</a>
+<a class="text-[#003527] dark:text-stone-300 hover:text-[#735c00] transition-colors duration-400 ease-in-out cursor-pointer" href="#">Gallery</a>
+<a class="text-[#003527] dark:text-stone-300 hover:text-[#735c00] transition-colors duration-400 ease-in-out cursor-pointer" href="#">About</a>
+<a class="text-[#735c00] border-b border-[#735c00] pb-1 hover:text-[#735c00] transition-colors duration-400 ease-in-out cursor-pointer" href="#">Reviews</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-md font-label text-sm uppercase tracking-widest hover:bg-primary-container transition-all duration-400 hover:-translate-y-0.5 active:scale-95">
+            Book Appointment
+        </button>
+</nav>
+<div class="bg-[#f5f3ef] dark:bg-stone-900 h-[1px] w-full"></div>
+<main class="max-w-7xl mx-auto px-6 md:px-12 pt-24 pb-32">
+<!-- Hero Section -->
+<header class="mb-32 flex flex-col md:flex-row items-end gap-12">
+<div class="w-full md:w-3/5">
+<span class="text-secondary font-label uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Testimonials</span>
+<h1 class="font-headline text-5xl md:text-7xl text-primary leading-tight">Voices of <br/><span class="italic">Distinction</span></h1>
+<p class="mt-8 text-on-surface-variant text-lg max-w-lg leading-relaxed">
+                    Explore the experiences of our most discerning guests. A sanctuary of peace, documented through the words of those who value the ephemeral beauty of time.
+                </p>
+</div>
+<div class="w-full md:w-2/5 flex justify-end">
+<div class="h-32 w-[1px] bg-outline-variant hidden md:block"></div>
+<div class="ml-12 italic text-primary font-headline text-2xl max-w-[280px]">
+                    "Luxury is not a presence, it is the absence of noise."
+                </div>
+</div>
+</header>
+<!-- Magazine Logos Section -->
+<section class="mb-32 py-16 border-y border-outline-variant/30">
+<p class="text-center text-xs font-label uppercase tracking-widest text-outline mb-12">As Featured In</p>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+<span class="font-headline text-3xl font-bold text-primary tracking-tighter">VOGUE</span>
+<span class="font-headline text-2xl font-light text-primary italic">Architectural Digest</span>
+<span class="font-headline text-3xl text-primary font-bold">BAZAAR</span>
+<span class="font-headline text-2xl text-primary tracking-widest font-medium uppercase">Tatler</span>
+<span class="font-headline text-3xl text-primary italic font-semibold">Vanity Fair</span>
+</div>
+</section>
+<!-- Testimonial Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Featured Large Testimonial -->
+<div class="md:col-span-8 bg-surface-container-low p-12 rounded-lg relative overflow-hidden flex flex-col justify-between group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+<div>
+<div class="flex gap-1 mb-8">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-headline italic text-3xl md:text-4xl text-primary leading-snug mb-12">
+                        "The level of discretion and bespoke care at The Sovereign Sanctuary is unmatched. I’ve visited retreats globally, but here, time truly feels curated for your soul's restoration."
+                    </blockquote>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border border-outline-variant p-1">
+<img class="w-full h-full rounded-full object-cover" data-alt="portrait of a distinguished middle aged man with professional lighting and blurred architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeKtpdxBmGH8pUnBKzajhzrZ0Hs7JeDYFSW6M8z4tIhYTxZUalg23TVKGeAyE6PeVjt59NDvsWP90GX0IAza8bBpj0ZzbiCXZNdHTzXDriwvRQ6d9TK5MKwGPdiH3D5oca4DvvbbbDxkPR_1URPBUugpC6efyUf-bx9h-oRinjwvvfIb8j1oFSmICYQKY4d3tInjBoQC95FRAQXA3cssUSZUx2qiHBcQ2VYXR9i4jsIwvaUnUoafDjBqnw1sbB8CwGcVTiprsUyxE"/>
+</div>
+<div>
+<p class="font-label font-bold text-primary uppercase tracking-widest text-sm">Julian Vane-Tempest</p>
+<p class="text-on-surface-variant text-xs">Managing Director, Global Equity</p>
+</div>
+</div>
+</div>
+<!-- Side Card 1 -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-surface-container p-8 rounded-lg ambient-shadow flex flex-col justify-between">
+<div>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-headline italic text-xl text-primary leading-relaxed mb-8">
+                        "A masterclass in temporal luxury. The thermal journey was transformative."
+                    </blockquote>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="sophisticated woman smiling gently in soft natural daylight with a warm cream background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChLz-kIRjo-kGy28Q94zoH04Ucd5BipBrkSx-_2B9bULyO-aX9sSZNEgK4Jop7qNdAzlZf7hRrj2HUmbtRV2XrBpB6qI1OTD6sJjOhgBLR0h5Ok0-ySO1RQMGJze8c0CaQWT-6A3uRD_uicE4-CqdzJ6SAncmchWPuJEYDqiYLEh8nG6l6GY1YAnhNQPvsISwG-n6UHbQKtoK3k2Q1eI9XPWbkNgfHG_jUQlNgc70P6FzVRaUKHtvKCcS9yQ6iJ6kKDPfjzjHqB1M"/>
+</div>
+<div>
+<p class="font-label font-bold text-primary text-xs uppercase">Elena Moretti</p>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-tighter">Art Collector</p>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-surface-container p-8 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-headline italic text-xl text-primary leading-relaxed mb-8">
+                        "The attention to detail—from the scent profile to the linen quality—is astounding."
+                    </blockquote>
+</div>
+<p class="font-label font-bold text-primary text-xs uppercase tracking-widest">— Marcus Thorne</p>
+</div>
+<div class="md:col-span-4 bg-primary p-8 rounded-lg flex flex-col justify-between text-on-primary">
+<div>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-headline italic text-xl leading-relaxed mb-8">
+                        "Finally, a place that understands that true royalty is about silence and restoration."
+                    </blockquote>
+</div>
+<div>
+<p class="font-label font-bold uppercase tracking-widest text-xs">Lady Catherine H.</p>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-lowest border border-surface-container p-8 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-headline italic text-xl text-primary leading-relaxed mb-8">
+                        "A ritual of renewal that I now consider essential to my wellbeing."
+                    </blockquote>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a focused professional man in a tailored dark suit against a soft focus office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu6zJIzKukH5Syz9Td5Hr8IsEpU8SPjCgsNI9tp5KKh3gWIjgVnPKrFmbHAD6SpUjku4xt3K6tCY-B074Irz3iQe1cdUw0xRk7V1FxyFySapxjmJ2p_vgOrAhStERtpwNe7k7_cFMdGHaQjCosgFFtykk9sxVtyb00uzmW-ekjiUGOMw5QlIcpzi0iLwEGjyBKpu-d_XBjIq-llJsxNMdhKM3M4B1BWZ5gzpaiwfBhqCdbvdXIkfl-HreYYLR4TtV99sJ3e0B1YTk"/>
+</div>
+<div>
+<p class="font-label font-bold text-primary text-xs uppercase">David Sterling</p>
+</div>
+</div>
+</div>
+<!-- Asymmetric Image Break -->
+<div class="md:col-span-12 my-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="order-2 md:order-1">
+<div class="border-l-2 border-secondary pl-8 py-4">
+<h3 class="font-headline text-3xl text-primary mb-6 italic">Join the Legacy</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8 max-w-md">
+                            Every experience at The Sovereign Sanctuary is a new chapter in our history of excellence. We invite you to find your own moment of stillness.
+                        </p>
+<button class="border-[1.5px] border-secondary text-secondary px-8 py-3 rounded-md font-label text-sm uppercase tracking-widest hover:bg-secondary-fixed transition-all duration-400">
+                            Book Your Experience
+                        </button>
+</div>
+</div>
+<div class="order-1 md:order-2 h-96 rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="luxury spa interior with warm golden lighting, textured stone walls, and a still pool reflecting soft candlelight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt1KOSiBHZqqSx67Yf-tr1fRJ3NvP2jkvi_PYKe5XbTzow6nWZflkDG860FI55PRnQukrPgyQkY9AbO9c-ErpRwYRcD4IlP54Oc4Da1LEVhvbtAAsXkBauxf_4C981lf_0Tk0Hgg_DMIY6oXS3Wnk9nENUEUD_CTtaagiHQwxlCGc8HNuZDpgFoY9P2jQR4DaphMOsctMtLzmNp7u_EBaDD1-eXQOoh8tRHi87YbEx4MOGp6eiEZyXNkLlMMpiXTgcYpbomvNQLBU"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-700"></div>
+</div>
+</div>
+<!-- Final Row -->
+<div class="md:col-span-6 bg-surface-container-high p-12 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex gap-1 mb-8">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-headline italic text-2xl text-primary leading-relaxed mb-10">
+                        "The only place where the service anticipates your needs before you even realize them yourself. Simply divine."
+                    </blockquote>
+</div>
+<p class="font-label font-bold text-primary text-sm uppercase tracking-widest">— Sophia Rothschild</p>
+</div>
+<div class="md:col-span-6 bg-surface-container-lowest border border-surface-container p-12 rounded-lg flex flex-col justify-between ambient-shadow">
+<div>
+<div class="flex gap-1 mb-8">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-headline italic text-2xl text-primary leading-relaxed mb-10">
+                        "The customized skincare regimen they designed has quite literally changed my daily ritual. Expertise of the highest order."
+                    </blockquote>
+</div>
+<p class="font-label font-bold text-primary text-sm uppercase tracking-widest">— Alexander K. Thorne</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full relative mt-20 bg-[#f5f3ef] dark:bg-stone-900 transition-opacity duration-300">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-serif text-[#003527] dark:text-emerald-400 mb-6 italic">The Sovereign Sanctuary</div>
+<p class="font-['Manrope'] text-sm tracking-normal text-[#1b1c1a] dark:text-stone-400 leading-relaxed">
+                    Crafting moments of absolute stillness for the modern sovereign.
+                </p>
+</div>
+<div class="col-span-1 flex flex-col space-y-4">
+<p class="font-label font-bold text-primary text-xs uppercase tracking-widest mb-2">Experiences</p>
+<a class="text-[#1b1c1a] dark:text-stone-400 hover:text-[#735c00] text-sm transition-colors duration-300" href="#">Hydrotherapy</a>
+<a class="text-[#1b1c1a] dark:text-stone-400 hover:text-[#735c00] text-sm transition-colors duration-300" href="#">Manual Therapy</a>
+<a class="text-[#1b1c1a] dark:text-stone-400 hover:text-[#735c00] text-sm transition-colors duration-300" href="#">Mindfulness</a>
+<a class="text-[#1b1c1a] dark:text-stone-400 hover:text-[#735c00] text-sm transition-colors duration-300" href="#">Curated Retreats</a>
+</div>
+<div class="col-span-1 flex flex-col space-y-4">
+<p class="font-label font-bold text-primary text-xs uppercase tracking-widest mb-2">Sanctuary</p>
+<a class="text-[#1b1c1a] dark:text-stone-400 hover:text-[#735c00] text-sm transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="text-[#1b1c1a] dark:text-stone-400 hover:text-[#735c00] text-sm transition-colors duration-300" href="#">Terms of Service</a>
+<a class="text-[#1b1c1a] dark:text-stone-400 hover:text-[#735c00] text-sm transition-colors duration-300" href="#">Careers</a>
+<a class="text-[#1b1c1a] dark:text-stone-400 hover:text-[#735c00] text-sm transition-colors duration-300" href="#">Sustainability</a>
+</div>
+<div class="col-span-1">
+<p class="font-label font-bold text-primary text-xs uppercase tracking-widest mb-4">Newsletter</p>
+<div class="flex flex-col space-y-4">
+<p class="text-xs text-on-surface-variant">Join the inner circle for seasonal offerings.</p>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline py-2 focus:border-secondary outline-none text-sm transition-all duration-300 placeholder:text-outline-variant" placeholder="Email Address" type="email"/>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 py-8 border-t border-outline-variant/20 flex justify-between items-center">
+<p class="font-['Manrope'] text-xs tracking-normal text-[#1b1c1a] dark:text-stone-400">© 2024 The Sovereign Sanctuary. All rights reserved.</p>
+<div class="flex space-x-6">
+<span class="material-symbols-outlined text-primary text-lg cursor-pointer hover:text-secondary transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined text-primary text-lg cursor-pointer hover:text-secondary transition-colors" data-icon="language">language</span>
+</div>
+</div>
+</footer>
+</body></html>

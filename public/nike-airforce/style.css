@@ -1,0 +1,728 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   NIKE AIR FORCE 1 — Interactive Showcase
+   Dynamic theme switching per shoe colorway
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* ── Reset ───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+/* ── Theme Variables ─────────────────────────────────────────────────── */
+:root {
+  --transition: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Theme 0: White / Clean */
+body[data-shoe="0"] {
+  --bg: #0d0d0d;
+  --bg2: #111;
+  --fg: #f5f5f5;
+  --muted: #888;
+  --accent: #f5f5f5;
+  --accent-glow: rgba(245, 245, 245, 0.15);
+  --circle-color: rgba(255, 255, 255, 0.04);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --particle-color: rgba(255, 255, 255, 0.4);
+  --shadow-color: rgba(200, 200, 200, 0.1);
+  --btn-bg: #fff;
+  --btn-fg: #000;
+}
+
+/* Theme 1: Black / Stealth */
+body[data-shoe="1"] {
+  --bg: #060606;
+  --bg2: #0a0a0a;
+  --fg: #e0e0e0;
+  --muted: #666;
+  --accent: #4a4a4a;
+  --accent-glow: rgba(80, 80, 80, 0.2);
+  --circle-color: rgba(50, 50, 50, 0.15);
+  --card-bg: rgba(40, 40, 40, 0.3);
+  --card-border: rgba(60, 60, 60, 0.2);
+  --grid-color: rgba(255, 255, 255, 0.015);
+  --particle-color: rgba(100, 100, 100, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --btn-bg: #333;
+  --btn-fg: #fff;
+}
+
+/* Theme 2: Red / Bold */
+body[data-shoe="2"] {
+  --bg: #0a0606;
+  --bg2: #100808;
+  --fg: #f5f0f0;
+  --muted: #8a6666;
+  --accent: #c8102e;
+  --accent-glow: rgba(200, 16, 46, 0.15);
+  --circle-color: rgba(200, 16, 46, 0.06);
+  --card-bg: rgba(200, 16, 46, 0.06);
+  --card-border: rgba(200, 16, 46, 0.12);
+  --grid-color: rgba(200, 16, 46, 0.03);
+  --particle-color: rgba(200, 16, 46, 0.5);
+  --shadow-color: rgba(200, 16, 46, 0.15);
+  --btn-bg: #c8102e;
+  --btn-fg: #fff;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────── */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden;
+  cursor: none;
+  transition: background 0.8s var(--transition), color 0.6s var(--transition);
+}
+
+a { color: inherit; text-decoration: none; cursor: none; }
+img { display: block; max-width: 100%; }
+button { background: none; border: none; color: inherit; font-family: inherit; cursor: none; }
+
+::selection {
+  background: var(--accent);
+  color: var(--btn-fg);
+}
+
+/* ── Custom Cursor ─────────────────────────────────────────────────── */
+.custom-cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--fg);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--transition), height 0.3s var(--transition), background 0.6s;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s var(--transition), height 0.5s var(--transition), border-color 0.4s;
+}
+
+body.cursor-hover .custom-cursor {
+  width: 50px; height: 50px;
+  background: transparent;
+  border: 2px solid var(--accent);
+}
+
+body.cursor-hover .cursor-trail {
+  width: 70px; height: 70px;
+  border-color: var(--accent);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor, .cursor-trail { display: none; }
+  body { cursor: auto; }
+  a, button { cursor: pointer; }
+}
+
+/* ── Loader ──────────────────────────────────────────────────────────── */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loader-swoosh {
+  opacity: 0;
+  animation: loaderFade 0.5s 0.2s forwards;
+}
+
+.loader-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5rem;
+  opacity: 0;
+  animation: loaderFade 0.5s 0.5s forwards;
+}
+
+.loader-bar {
+  width: 100px; height: 2px;
+  background: #222;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loader-fill {
+  height: 100%;
+  width: 0;
+  background: #fff;
+  animation: loaderProgress 1.5s 0.3s ease-out forwards;
+}
+
+@keyframes loaderFade { to { opacity: 1; } }
+@keyframes loaderProgress { to { width: 100%; } }
+
+/* ── Navigation ──────────────────────────────────────────────────────── */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  mix-blend-mode: difference;
+}
+
+.nav-brand .swoosh { transition: transform 0.3s var(--transition); }
+.nav-brand:hover .swoosh { transform: scale(1.1); }
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-model {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  transition: opacity 0.5s;
+}
+
+.shoe-counter {
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.15rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.shoe-counter span:first-child {
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ── Showcase ────────────────────────────────────────────────────────── */
+.showcase {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 48px 80px;
+  overflow: hidden;
+}
+
+/* Background circle */
+.bg-circle {
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: var(--circle-color);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  filter: blur(80px);
+  transition: background 1s var(--transition), transform 0.8s var(--transition);
+  pointer-events: none;
+}
+
+/* Background grid */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: background-image 0.8s;
+}
+
+/* Particles */
+.bg-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--particle-color);
+  animation: float var(--duration) var(--delay) ease-in-out infinite;
+  transition: background 0.8s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translate(var(--dx), var(--dy)) scale(1.5); opacity: 0.6; }
+  90% { opacity: 0; }
+}
+
+/* ── Shoe Stage ──────────────────────────────────────────────────────── */
+.shoe-stage {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px; height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.shoe-image-wrap {
+  position: relative;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoe-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 60px var(--shadow-color));
+  transition: filter 0.8s var(--transition), transform 0.6s var(--transition);
+  animation: shoeFloat 4s ease-in-out infinite;
+}
+
+@keyframes shoeFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+.shoe-image.switching {
+  animation: shoeSwitch 0.7s var(--transition);
+}
+
+@keyframes shoeSwitch {
+  0% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+  40% { opacity: 0; transform: translateY(-40px) scale(0.85) rotate(-8deg); }
+  60% { opacity: 0; transform: translateY(40px) scale(0.85) rotate(8deg); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+.shoe-shadow {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px; height: 20px;
+  background: var(--shadow-color);
+  border-radius: 50%;
+  filter: blur(20px);
+  transition: background 0.8s;
+  animation: shadowFloat 4s ease-in-out infinite;
+}
+
+@keyframes shadowFloat {
+  0%, 100% { transform: translateX(-50%) scaleX(1); opacity: 0.5; }
+  50% { transform: translateX(-50%) scaleX(0.85); opacity: 0.3; }
+}
+
+/* ── Content Layout ──────────────────────────────────────────────────── */
+.showcase-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.showcase-content > * { pointer-events: auto; }
+
+.content-left {
+  max-width: 400px;
+}
+
+.content-right {
+  max-width: 280px;
+}
+
+/* ── Shoe Info ───────────────────────────────────────────────────────── */
+.shoe-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.6s;
+}
+
+.eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: background 0.6s;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.shoe-title {
+  margin-bottom: 20px;
+}
+
+.title-line {
+  display: block;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: contentFadeUp 0.8s 1.8s var(--transition) forwards;
+}
+
+.title-line:nth-child(2) { animation-delay: 2s; }
+
+.title-accent {
+  color: var(--accent);
+  transition: color 0.6s var(--transition);
+  -webkit-text-stroke: 1px var(--accent);
+}
+
+/* For white theme, outline style on accent */
+body[data-shoe="0"] .title-accent {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--accent);
+}
+
+body[data-shoe="1"] .title-accent {
+  color: transparent;
+  -webkit-text-stroke: 2px #555;
+}
+
+body[data-shoe="2"] .title-accent {
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+}
+
+.shoe-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: contentFadeUp 0.8s 2.2s var(--transition) forwards;
+  transition: color 0.6s;
+}
+
+.shoe-price-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  animation: contentFadeUp 0.8s 2.4s var(--transition) forwards;
+}
+
+.shoe-price {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.btn-shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  border-radius: 100px;
+  transition: all 0.4s var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shop::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 100px;
+  background: var(--accent-glow);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.btn-shop:hover::before { opacity: 1; }
+.btn-shop:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+.btn-shop span, .btn-shop svg { position: relative; z-index: 1; }
+
+/* ── Details ─────────────────────────────────────────────────────────── */
+.shoe-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--card-border);
+  opacity: 0;
+  animation: contentFadeUp 0.6s var(--transition) forwards;
+  transition: border-color 0.6s;
+}
+
+.detail-item:nth-child(1) { animation-delay: 2s; }
+.detail-item:nth-child(2) { animation-delay: 2.1s; }
+.detail-item:nth-child(3) { animation-delay: 2.2s; }
+.detail-item:nth-child(4) { animation-delay: 2.3s; }
+
+.detail-label {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.6s;
+}
+
+.detail-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+}
+
+@keyframes contentFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Arrows ──────────────────────────────────────────────────────────── */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s var(--transition);
+}
+
+.arrow-left { left: 32px; }
+.arrow-right { right: 32px; }
+
+.arrow:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--btn-fg);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.arrow:active { transform: translateY(-50%) scale(0.95); }
+
+/* ── Dots ────────────────────────────────────────────────────────────── */
+.shoe-dots {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 50;
+}
+
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  opacity: 0.3;
+  transition: all 0.4s var(--transition);
+}
+
+.dot.active {
+  opacity: 1;
+  background: var(--accent);
+  width: 32px;
+  border-radius: 4px;
+}
+
+/* ── Color Swatches ──────────────────────────────────────────────────── */
+.color-swatches {
+  position: absolute;
+  right: 48px;
+  bottom: 40px;
+  display: flex;
+  gap: 10px;
+  z-index: 50;
+}
+
+.swatch {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--swatch-color);
+  border: 2px solid transparent;
+  transition: all 0.3s var(--transition);
+  position: relative;
+}
+
+.swatch::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.swatch.active::after { border-color: var(--fg); }
+.swatch:hover { transform: scale(1.2); }
+
+/* ── Features Strip ──────────────────────────────────────────────────── */
+.features-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--card-border);
+  border-top: 1px solid var(--card-border);
+  transition: background 0.6s;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 28px;
+  background: var(--bg2);
+  transition: all 0.4s var(--transition);
+}
+
+.feature-card:hover {
+  background: var(--card-bg);
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: color 0.6s, transform 0.3s var(--transition);
+}
+
+.feature-card:hover .feature-icon { transform: scale(1.15); }
+
+.feature-text strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.feature-text span {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--muted);
+  transition: color 0.6s;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+.footer {
+  padding: 32px 48px;
+  border-top: 1px solid var(--card-border);
+  transition: border-color 0.6s;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer p {
+  font-size: 0.75rem;
+  color: var(--muted);
+  transition: color 0.6s;
+}
+
+.footer a {
+  color: var(--fg);
+  border-bottom: 1px solid var(--accent);
+  transition: color 0.3s;
+}
+
+.footer a:hover { color: var(--accent); }
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .showcase { flex-direction: column; padding: 100px 32px 60px; min-height: auto; }
+  .shoe-stage { position: relative; top: auto; left: auto; transform: none; width: 400px; height: 400px; margin: 40px auto; }
+  .showcase-content { flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+  .content-left, .content-right { max-width: 100%; }
+  .shoe-price-row { justify-content: center; }
+  .shoe-details { width: 100%; max-width: 360px; margin: 0 auto; }
+  .arrow-left { left: 16px; }
+  .arrow-right { right: 16px; }
+  .features-strip { grid-template-columns: repeat(2, 1fr); }
+  .color-swatches { right: auto; left: 50%; transform: translateX(-50%); bottom: 20px; }
+  .shoe-dots { bottom: 60px; }
+}
+
+@media (max-width: 640px) {
+  #nav { padding: 16px 20px; }
+  .nav-center { display: none; }
+  .showcase { padding: 80px 20px 40px; }
+  .shoe-stage { width: 280px; height: 280px; }
+  .arrow { width: 44px; height: 44px; }
+  .arrow-left { left: 8px; }
+  .arrow-right { right: 8px; }
+  .features-strip { grid-template-columns: 1fr; }
+  .feature-card { padding: 20px; }
+  .footer { padding: 20px; }
+  .footer-inner { flex-direction: column; }
+}

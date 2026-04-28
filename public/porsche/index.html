@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Porsche 911 GT3 RS — Born on the Track</title>
+  <meta name="description" content="Experience the Porsche 911 GT3 RS. Born on the track. Built for the road. An immersive digital showcase." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-line"></div>
+      <span class="loader-text">PORSCHE</span>
+      <span class="loader-sub">Loading Experience...</span>
+    </div>
+  </div>
+
+  <!-- Cursor -->
+  <div id="cursor" class="custom-cursor"></div>
+  <div id="cursor-trail" class="cursor-trail"></div>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <svg viewBox="0 0 60 60" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="30" cy="30" r="28" />
+        <text x="50%" y="54%" text-anchor="middle" font-size="14" font-family="Outfit" font-weight="700" fill="currentColor" stroke="none">P</text>
+      </svg>
+    </div>
+    <div class="nav-links">
+      <a href="#overview" data-hover="Overview">Overview</a>
+      <a href="#specs" data-hover="Specifications">Specifications</a>
+      <a href="#gallery" data-hover="Gallery">Gallery</a>
+      <a href="#design" data-hover="Design">Design</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#configure" class="btn-configure">Configure Yours</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <img src="images/hero.png" alt="Porsche 911 GT3 RS" class="hero-img" />
+      <div class="hero-gradient"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">THE NEW</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line"><span class="title-word">911</span></span>
+        <span class="title-line"><span class="title-word">GT3 RS</span></span>
+      </h1>
+      <p class="hero-tagline">Born on the track. Built for the road.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-value" data-count="518">0</span>
+          <span class="stat-label">HP</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-value" data-count="3" data-decimal="2">0</span>
+          <span class="stat-label">0–100 km/h (s)</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-value" data-count="296">0</span>
+          <span class="stat-label">km/h Top Speed</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section id="overview" class="section overview">
+    <div class="section-grid">
+      <div class="overview-left">
+        <span class="section-number">01</span>
+        <h2 class="section-title">
+          <span class="reveal-line">Pure.</span>
+          <span class="reveal-line">Unfiltered.</span>
+          <span class="reveal-line">Track-bred.</span>
+        </h2>
+      </div>
+      <div class="overview-right">
+        <p class="overview-text reveal-text">
+          The 911 GT3 RS is the closest road car to a Porsche racing machine. 
+          Every aerodynamic surface, every gram of weight, every degree of camber — 
+          engineered with one purpose: to make you faster.
+        </p>
+        <p class="overview-text reveal-text">
+          With its naturally aspirated 4.0-litre flat-six engine revving to 9,000 rpm, 
+          the GT3 RS delivers an experience that modern turbocharged cars simply cannot replicate. 
+          This is motorsport, distilled.
+        </p>
+        <div class="overview-features">
+          <div class="feature-item reveal-text">
+            <span class="feature-number">4.0L</span>
+            <span class="feature-label">Flat-Six Engine</span>
+          </div>
+          <div class="feature-item reveal-text">
+            <span class="feature-number">9,000</span>
+            <span class="feature-label">RPM Redline</span>
+          </div>
+          <div class="feature-item reveal-text">
+            <span class="feature-number">PDK</span>
+            <span class="feature-label">7-Speed Dual Clutch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specifications Section -->
+  <section id="specs" class="section specs">
+    <div class="specs-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">
+        <span class="reveal-line">Performance</span>
+        <span class="reveal-line">Metrics</span>
+      </h2>
+    </div>
+    <div class="specs-grid">
+      <div class="spec-card reveal-card">
+        <div class="spec-icon">
+          <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="24" cy="24" r="20" />
+            <path d="M24 12 L24 24 L34 28" />
+          </svg>
+        </div>
+        <div class="spec-value">3.2<span class="spec-unit">s</span></div>
+        <div class="spec-label">0 – 100 km/h</div>
+        <div class="spec-bar"><div class="spec-fill" data-width="92"></div></div>
+      </div>
+      <div class="spec-card reveal-card">
+        <div class="spec-icon">
+          <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="24,4 44,38 4,38" />
+          </svg>
+        </div>
+        <div class="spec-value">518<span class="spec-unit">HP</span></div>
+        <div class="spec-label">Maximum Power</div>
+        <div class="spec-bar"><div class="spec-fill" data-width="88"></div></div>
+      </div>
+      <div class="spec-card reveal-card">
+        <div class="spec-icon">
+          <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="8" y="8" width="32" height="32" rx="6" />
+            <line x1="18" y1="16" x2="30" y2="16" />
+            <line x1="18" y1="24" x2="30" y2="24" />
+            <line x1="18" y1="32" x2="26" y2="32" />
+          </svg>
+        </div>
+        <div class="spec-value">1,450<span class="spec-unit">kg</span></div>
+        <div class="spec-label">Curb Weight</div>
+        <div class="spec-bar"><div class="spec-fill" data-width="70"></div></div>
+      </div>
+      <div class="spec-card reveal-card">
+        <div class="spec-icon">
+          <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 36 Q12 6, 24 24 Q36 42, 44 12" />
+          </svg>
+        </div>
+        <div class="spec-value">296<span class="spec-unit">km/h</span></div>
+        <div class="spec-label">Top Speed</div>
+        <div class="spec-bar"><div class="spec-fill" data-width="95"></div></div>
+      </div>
+      <div class="spec-card reveal-card">
+        <div class="spec-icon">
+          <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="24" cy="24" r="18" />
+            <circle cx="24" cy="24" r="8" />
+            <line x1="24" y1="6" x2="24" y2="14" />
+            <line x1="24" y1="34" x2="24" y2="42" />
+          </svg>
+        </div>
+        <div class="spec-value">409<span class="spec-unit">Nm</span></div>
+        <div class="spec-label">Maximum Torque</div>
+        <div class="spec-bar"><div class="spec-fill" data-width="82"></div></div>
+      </div>
+      <div class="spec-card reveal-card">
+        <div class="spec-icon">
+          <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 24 L18 12 L30 28 L42 8" />
+            <path d="M34 8 L42 8 L42 16" />
+          </svg>
+        </div>
+        <div class="spec-value">860<span class="spec-unit">kg</span></div>
+        <div class="spec-label">Downforce at 285 km/h</div>
+        <div class="spec-bar"><div class="spec-fill" data-width="97"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section gallery">
+    <div class="gallery-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">
+        <span class="reveal-line">The Details</span>
+      </h2>
+    </div>
+    <div class="gallery-track">
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="images/hero.png" alt="Porsche 911 GT3 RS Profile" />
+        </div>
+        <div class="gallery-caption">
+          <span class="caption-num">01</span>
+          <span class="caption-text">Aerodynamic Profile</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="images/interior.png" alt="Porsche 911 GT3 RS Interior" />
+        </div>
+        <div class="gallery-caption">
+          <span class="caption-num">02</span>
+          <span class="caption-text">Racing Cockpit</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="images/rear.png" alt="Porsche 911 GT3 RS Rear" />
+        </div>
+        <div class="gallery-caption">
+          <span class="caption-num">03</span>
+          <span class="caption-text">Iconic Rear Wing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Philosophy Section -->
+  <section id="design" class="section design">
+    <div class="design-grid">
+      <div class="design-visual">
+        <img src="images/rear.png" alt="Design detail" class="design-img" />
+        <div class="design-overlay"></div>
+      </div>
+      <div class="design-content">
+        <span class="section-number">04</span>
+        <h2 class="section-title">
+          <span class="reveal-line">Form Follows</span>
+          <span class="reveal-line">Performance</span>
+        </h2>
+        <p class="design-text reveal-text">
+          Every curve, every vent, every surface is sculpted by aerodynamics. 
+          The swan-neck rear wing generates up to 860 kg of downforce at 285 km/h.
+          The front splitter, side blades, and rear diffuser work in concert, 
+          creating a ground-effect car for the road.
+        </p>
+        <div class="design-features">
+          <div class="design-feature reveal-text">
+            <div class="design-feature-icon">↗</div>
+            <div>
+              <strong>Active Aerodynamics</strong>
+              <p>DRS flap on the rear wing reduces drag by up to 20% on straights</p>
+            </div>
+          </div>
+          <div class="design-feature reveal-text">
+            <div class="design-feature-icon">◉</div>
+            <div>
+              <strong>Carbon Fiber Construction</strong>
+              <p>Hood, fenders, and doors in CFRP for maximum weight reduction</p>
+            </div>
+          </div>
+          <div class="design-feature reveal-text">
+            <div class="design-feature-icon">⬡</div>
+            <div>
+              <strong>Central Radiator</strong>
+              <p>Optimized airflow channels for consistent cooling under load</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Configure CTA -->
+  <section id="configure" class="section configure">
+    <div class="configure-content">
+      <h2 class="configure-title">
+        <span class="reveal-line">Make It</span>
+        <span class="reveal-line">Yours.</span>
+      </h2>
+      <p class="configure-text reveal-text">Configure your dream 911 GT3 RS with Porsche's online configurator.</p>
+      <a href="https://www.porsche.com/international/models/911/911-gt3-models/911-gt3-rs/" target="_blank" rel="noopener noreferrer" class="btn-primary reveal-text">
+        <span>Start Configuration</span>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">PORSCHE</span>
+        <span class="footer-tagline">911 GT3 RS</span>
+      </div>
+      <div class="footer-copy">
+        <p>This is a design concept. Not affiliated with Porsche AG.</p>
+        <p>Designed by <a href="https://gursimar007.github.io" target="_blank">Gursimar Singh</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
